@@ -25,11 +25,11 @@
 | name                 | string     | null: false       |
 | introduction         | text       | null: false       |
 | price                | integer    | null: false       |
-| item_condition_id    | string     | null: false       |
-| postage_payer_id     | string     | null: false       |
+| item_condition_id    | integer    | null: false       |
+| postage_payer_id     | integer    | null: false       |
 | prefecture_code_id   | integer    | null: false       |
 | preparetion_day_id   | integer    | null: false       |
-| category_id          | string     | null: false       |
+| category_id          | integer    | null: false       |
 | user                 | references | foreign_key: true |
 
 ### Association
@@ -54,7 +54,7 @@
 
 | Column               | Type       | Options           |
 | -------------------- | ---------- | ----------------- |
-| post_code_id         | string     | null: false       |
+| post_code_id         | integer    | null: false       |
 | prefecture_code_id   | integer    | null: false       |
 | city                 | string     | null: false       |
 | house_number         | string     | null: false       |
