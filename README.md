@@ -25,7 +25,7 @@
 | name                 | string     | null: false       |
 | introduction         | text       | null: false       |
 | price                | integer    | null: false       |
-| item_condition_id    | integer    | null: false       |
+| condition_id    　　　| integer    | null: false       |
 | postage_payer_id     | integer    | null: false       |
 | prefecture_code_id   | integer    | null: false       |
 | preparetion_day_id   | integer    | null: false       |
@@ -54,7 +54,7 @@
 
 | Column               | Type       | Options           |
 | -------------------- | ---------- | ----------------- |
-| post_code_id         | integer    | null: false       |
+| post_code            | string     | null: false       |
 | prefecture_code_id   | integer    | null: false       |
 | city                 | string     | null: false       |
 | house_number         | string     | null: false       |
