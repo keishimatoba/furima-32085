@@ -28,6 +28,12 @@ RSpec.describe User do
         expect(@user.errors.full_messages).to include("Email can't be blank")
       end
 
+      it 'emailに＠を含まなければ登録できないこと' do
+        @user.email = 'kkkemail.com'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Email is invalid')
+      end
+
       it 'first_nameが空では登録できないこと' do
         @user.first_name = ''
         @user.valid?
@@ -66,6 +72,34 @@ RSpec.describe User do
 
       it 'passwordが存在してもpassword_confirmationが空では登録できないこと' do
         @user.password_confirmation = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end
+
+      it 'passwordが半角数字のみでは登録できないこと' do
+        @user.password = '000000'
+        @user.password_confirmation = '000000'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid')
+      end
+
+      it 'passwordが半角英語のみでは登録できないこと' do
+        @user.password = 'aaaaaa'
+        @user.password_confirmation = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid')
+      end
+      
+      it 'passwordが全角英語では登録できないこと' do
+        @user.password = 'ａ00000'
+        @user.password_confirmation = 'ａ00000'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password is invalid')
+      end
+
+      it 'passwordとpassword_confirmationは値が同じでないと登録出来ないこと' do
+        @user.password = 'a00000'
+        @user.password_confirmation = 'a00001'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
