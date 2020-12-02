@@ -25,7 +25,7 @@
 | name                 | string     | null: false       |
 | introduction         | text       | null: false       |
 | price                | integer    | null: false       |
-| condition_id    　　　| integer    | null: false       |
+| condition_id         | integer    | null: false       |
 | postage_payer_id     | integer    | null: false       |
 | prefecture_code_id   | integer    | null: false       |
 | preparetion_day_id   | integer    | null: false       |
