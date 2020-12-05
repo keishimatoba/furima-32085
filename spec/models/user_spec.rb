@@ -89,7 +89,7 @@ RSpec.describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
       end
-      
+
       it 'passwordが全角英語では登録できないこと' do
         @user.password = 'ａ00000'
         @user.password_confirmation = 'ａ00000'
