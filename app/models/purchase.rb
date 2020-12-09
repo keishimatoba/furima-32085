@@ -7,8 +7,10 @@ class Purchase
     validates :prefecture_code_id, numericality: { other_than: 0 }
     validates :city
     validates :house_number
-    validates :phone_number, format: { with: /\A\d{11}\z/}
+    validates :phone_number, format: { with: /^(0{1}\d{9,10})$/}
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   def save
