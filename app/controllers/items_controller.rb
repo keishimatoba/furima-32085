@@ -24,7 +24,6 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to root_path  if current_user != @item.user || @item.order.present?
-    # redirect_to action: :index unless current_user == @item.user
   end
 
   def update
