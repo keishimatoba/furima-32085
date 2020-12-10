@@ -9,7 +9,7 @@ RSpec.describe Purchase, type: :model do
       @purchase = FactoryBot.build(:purchase, user_id: buyer.id, item_id: item.id) 
       sleep(1)
     end
-
+   context "登録成功時" do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@purchase).to be_valid
     end
@@ -17,7 +17,8 @@ RSpec.describe Purchase, type: :model do
       @purchase.building_name = nil
       expect(@purchase).to be_valid
     end
-
+   end
+   context "登録失敗時" do
     it '郵便番号が空だと保存できないこと' do
       @purchase.post_code = nil
       @purchase.valid?
@@ -78,5 +79,6 @@ RSpec.describe Purchase, type: :model do
       @purchase.valid?
       expect(@purchase.errors.full_messages).to include("Item can't be blank")
     end
+   end
   end
 end
